@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:background="@drawable/island_image"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/puppyImgBtn"
+        android:layout_width="162dp"
+        android:layout_height="107dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/puppy_image"
+        tools:layout_editor_absoluteY="59dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
