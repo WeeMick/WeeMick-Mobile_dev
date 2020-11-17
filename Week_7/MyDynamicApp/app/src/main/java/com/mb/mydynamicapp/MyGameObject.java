@@ -35,4 +35,7 @@ public class MyGameObject {
         image.draw(canvas);
     }
 
+
+
+
 }
