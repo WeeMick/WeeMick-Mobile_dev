@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
@@ -23,13 +22,27 @@ public class MyView extends View {
 
     OnTouchListener t1Listener = new OnTouchListener() {
         @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            x=event.getX();
-            y=event.getY();
-            v.invalidate();
-            return true;
+            public boolean onTouch(View v, MotionEvent event) {
+                x=event.getX();
+                y=event.getY();
+
+                if (event.getAction() == event.ACTION_DOWN) {
+                    prevX = x;
+                    prevY = y;
+                 }
+
+                v.invalidate();
+                return true;
         }
     };
+
+    public void setMyBitmap(Bitmap myBitmap) {
+        this.myBitmap = myBitmap;
+    }
+
+    public void setMyBitmapCanvas(Canvas myBitmapCanvas) {
+        this.myBitmapCanvas = myBitmapCanvas;
+    }
 
     public MyView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -38,7 +51,6 @@ public class MyView extends View {
         paint.setColor(Color.YELLOW);
         paint.setTextSize(100);
         setOnTouchListener(t1Listener);
-
     }
 
     @Override
@@ -59,6 +71,11 @@ public class MyView extends View {
         myBitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565);
         myBitmapCanvas = new Canvas(myBitmap);
     }
+
+    public void setColor(int color) {
+        paint.setColor(color);
+    }
+
 
 }
 
