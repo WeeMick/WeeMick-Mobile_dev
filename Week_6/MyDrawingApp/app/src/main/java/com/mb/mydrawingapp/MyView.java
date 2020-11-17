@@ -9,12 +9,13 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
 public class MyView extends View {
     Paint paint;
-    float x=100,y=100;
+    float x=100,y=100, prevX, prevY;
     Bitmap myBitmap = null;
     Canvas myBitmapCanvas = null;
     int width=800, height=800;
@@ -37,12 +38,16 @@ public class MyView extends View {
         paint.setColor(Color.YELLOW);
         paint.setTextSize(100);
         setOnTouchListener(t1Listener);
+
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        myBitmapCanvas.drawCircle(x, y,10,paint);
+//        myBitmapCanvas.drawCircle(x, y,10,paint);
+        myBitmapCanvas.drawLine(x,y, prevX, prevY, paint);
+        prevX = x;
+        prevY = y;
         canvas.drawBitmap(myBitmap,0,0,null);
     }
 
@@ -54,5 +59,6 @@ public class MyView extends View {
         myBitmap = Bitmap.createBitmap(width,height,Bitmap.Config.RGB_565);
         myBitmapCanvas = new Canvas(myBitmap);
     }
+
 }
 
