@@ -88,6 +88,7 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Canvas cleared", Toast.LENGTH_SHORT).show();
+                myView.clearCanvas();
             }
         });
 

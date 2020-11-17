@@ -36,14 +36,6 @@ public class MyView extends View {
         }
     };
 
-    public void setMyBitmap(Bitmap myBitmap) {
-        this.myBitmap = myBitmap;
-    }
-
-    public void setMyBitmapCanvas(Canvas myBitmapCanvas) {
-        this.myBitmapCanvas = myBitmapCanvas;
-    }
-
     public MyView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
@@ -74,6 +66,10 @@ public class MyView extends View {
 
     public void setColor(int color) {
         paint.setColor(color);
+    }
+
+    public void clearCanvas() {
+        myBitmapCanvas.drawColor(Color.BLACK);
     }
 
 
